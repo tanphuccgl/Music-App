@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:paddingHorizontal="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bannerImageView"
+        android:layout_width="282dp"
+        android:layout_height="246dp"
+        app:srcCompat="@drawable/banner_signup"
+        />
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="339dp"
+        android:layout_height="104dp"
+        app:srcCompat="@drawable/logo"
+         />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Tạo tài khoản"
+        android:gravity="left"
+        android:paddingLeft="60dp"
+      />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_width="300dp"
+        android:background="@drawable/rounded_edit_text"
+        android:padding="12dp"
+        android:hint="Tên"
+        android:inputType="text"
+      />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="300dp"
+        android:background="@drawable/rounded_edit_text"
+        android:padding="12dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="42dp"
+        tools:layout_editor_absoluteY="475dp" />
+
+    <EditText
+        android:id="@+id/editTextText4"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_width="300dp"
+        android:background="@drawable/rounded_edit_text"
+        android:padding="12dp"
+        android:ems="10"
+        android:hint="Mật khẩu"
+        android:inputType="text"
+       />
+
+    <androidx.appcompat.widget.AppCompatButton
+    android:background="@drawable/rounded_button"
+        android:id="@+id/button3"
+        android:minWidth="300dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tạo tài khoản"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@drawable/rounded_button"
+       />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Đăng nhập"
+       />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
