@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "720731776630",
+    "project_id": "music-app-5ab94",
+    "storage_bucket": "music-app-5ab94.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720731776630:android:cdc8077a3a76d2df986157",
+        "android_client_info": {
+          "package_name": "com.levi.musicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5tTJmXC86vfn4nlt6o-38Qaad2c5sDXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
