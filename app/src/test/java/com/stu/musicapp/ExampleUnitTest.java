@@ -1,4 +1,4 @@
-package com.levi.musicapp;
+package com.stu.musicapp;
 
 import org.junit.Test;
 

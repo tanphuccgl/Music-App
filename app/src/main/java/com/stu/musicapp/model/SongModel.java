@@ -1,6 +1,4 @@
-package com.levi.musicapp.model;
-
-import java.util.ArrayList;
+package com.stu.musicapp.model;
 
 public class SongModel {
     String id ;

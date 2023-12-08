@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.levi.musicapp"
+    namespace = "com.stu.musicapp"
     compileSdk = 34
 
     defaultConfig {

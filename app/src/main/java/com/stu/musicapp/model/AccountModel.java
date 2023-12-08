@@ -1,4 +1,4 @@
-package com.levi.musicapp.model;
+package com.stu.musicapp.model;
 
 public class AccountModel {
     String id;

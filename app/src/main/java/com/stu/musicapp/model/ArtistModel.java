@@ -1,4 +1,4 @@
-package com.levi.musicapp.model;
+package com.stu.musicapp.model;
 
 import java.util.ArrayList;
 
