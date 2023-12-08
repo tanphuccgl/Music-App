@@ -1,10 +1,10 @@
-package com.levi.musicapp;
+package com.stu.musicapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.levi.musicapp.model.SongModel;
+import com.stu.musicapp.model.SongModel;
 
 public class MainActivity extends AppCompatActivity {
 
