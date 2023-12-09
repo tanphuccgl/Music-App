@@ -5,6 +5,35 @@ public class AccountModel {
     String username;
     String password;
     String displayName;
+
+    public String getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public String getNumberPhone() {
+        return numberPhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getLinkImage() {
+        return linkImage;
+    }
+
     String numberPhone;
 
     String email;
