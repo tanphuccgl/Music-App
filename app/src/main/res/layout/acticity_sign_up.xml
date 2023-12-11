@@ -89,7 +89,7 @@
                     android:text="Tạo tài khoản" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/signInTextView"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
