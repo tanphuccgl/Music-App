@@ -39,8 +39,21 @@ public class AccountModel {
     String email;
     String linkImage;
 
+    @Override
+    public String toString() {
+        return "AccountModel{" +
+                "id='" + id + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", displayName='" + displayName + '\'' +
+                ", numberPhone='" + numberPhone + '\'' +
+                ", email='" + email + '\'' +
+                ", linkImage='" + linkImage + '\'' +
+                '}';
+    }
+
     public AccountModel(String id, String username, String password, String displayName, String numberPhone, String email, String linkImage) {
-        this.id = id;
+        this.id = id ;
         this.username = username;
         this.password = password;
         this.displayName = displayName;

@@ -9,18 +9,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/bannerImageView"
-        android:layout_width="282dp"
-        android:layout_height="246dp"
-        app:srcCompat="@drawable/banner_signup"
-        />
-
-    <ImageView
-        android:id="@+id/logoImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -71,22 +59,22 @@
             android:inputType="text"
             android:padding="12dp" />
 
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button3"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/rounded_button"-->
-<!--            android:backgroundTint="@drawable/rounded_button"-->
-<!--            android:minWidth="300dp"-->
-<!--            android:text="Tạo tài khoản" />-->
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/button3"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:backgroundTint="@drawable/rounded_button"-->
+        <!--            android:minWidth="300dp"-->
+        <!--            android:text="Tạo tài khoản" />-->
 
 
-                <Button
-                    android:id="@+id/signUpButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tạo tài khoản" />
+        <Button
+            android:id="@+id/signUpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tạo tài khoản" />
 
         <TextView
             android:id="@+id/signInTextView"
