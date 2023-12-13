@@ -100,19 +100,18 @@
                 android:paddingLeft="60dp"
                 android:layout_marginRight="20dp"
                 android:text="Đăng nhập với" />
-
             <ImageView
                 android:id="@+id/googleImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                app:srcCompat="@drawable/logo_gg" />
+                app:srcCompat="@drawable/image6"/>
 
             <ImageView
                 android:id="@+id/facebookImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="20dp"
-                app:srcCompat="@drawable/logo_fb" />
+                app:srcCompat="@drawable/image7"/>
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>
