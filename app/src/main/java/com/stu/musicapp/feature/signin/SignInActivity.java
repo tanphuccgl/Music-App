@@ -127,15 +127,12 @@ public class SignInActivity extends AppCompatActivity {
                             for (DocumentSnapshot item : listAccount) {
 
                                 Map<String,Object> mapValue = item.getData();
-                                String jsonString = mapValue.toString();
                                 Gson gson = new Gson();
-                             //   AccountModel data =  gson.fromJson(jsonString, AccountModel.class);
-
-                                Log.d("stu", "đăng nhập thành công: " + item.getData());
+                                String jsonString = new Gson().toJson(mapValue);
+                                AccountModel data =  gson.fromJson(jsonString, AccountModel.class);
 
                                 showToast("Đăng nhập thành công");
                                 // di chuyen vao trang home
-
                                 Intent intent = new Intent(SignInActivity.this, HomeActivity.class);
                                 startActivity(intent);
                             }
