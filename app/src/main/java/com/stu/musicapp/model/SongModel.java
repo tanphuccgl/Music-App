@@ -7,6 +7,11 @@ public class SongModel {
     String artist;
     String idAlbum;
     String linkSong;
+
+    public String getId() {
+        return id;
+    }
+
     String imageLink;
     String lyric;
 
