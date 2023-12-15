@@ -10,17 +10,19 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/bannerImageView"
+        android:id="@+id/bannerImageView2"
         android:layout_width="282dp"
         android:layout_height="246dp"
-        app:srcCompat="@drawable/banner_signup"
-        />
+        app:srcCompat="@drawable/banner_signup"/>
 
     <ImageView
-        android:id="@+id/logoImageView"
+        android:id="@+id/logoImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintTop_toBottomOf="@+id/bannerImageView2"
+        app:srcCompat="@drawable/logo"
+
+        tools:layout_editor_absoluteX="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,26 +31,16 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/textView3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:paddingLeft="60dp"
-            android:text="Tạo tài khoản" />
+            android:text="Quên mật khẩu"
+            android:paddingBottom="10dp"/>
 
         <EditText
-            android:id="@+id/nameSignUpEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:ems="10"
-            android:hint="Tên"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/emailSignUpEditText"
+            android:id="@+id/emailForgotPasswordEditText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -60,41 +52,72 @@
             tools:layout_editor_absoluteX="42dp"
             tools:layout_editor_absoluteY="475dp" />
 
-        <EditText
-            android:id="@+id/passwordSignUpEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:ems="10"
-            android:hint="Mật khẩu"
-            android:inputType="text"
-            android:padding="12dp" />
-
-<!--        <androidx.appcompat.widget.AppCompatButton-->
-<!--            android:id="@+id/button3"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/rounded_button"-->
-<!--            android:backgroundTint="@drawable/rounded_button"-->
-<!--            android:minWidth="300dp"-->
-<!--            android:text="Tạo tài khoản" />-->
-
-
-                <Button
-                    android:id="@+id/signUpButton"
-                    android:minWidth="300dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tạo tài khoản" />
-
-        <TextView
-            android:id="@+id/signInTextView"
-
+        <!--        <androidx.appcompat.widget.AppCompatButton-->
+        <!--            android:id="@+id/button4"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginBottom="10dp"-->
+        <!--            android:background="@drawable/rounded_button"-->
+        <!--            android:backgroundTint="@drawable/rounded_button"-->
+        <!--            android:minWidth="300dp"-->
+        <!--            android:text="Gửi mã" />-->
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Đăng nhập" />
+            android:id="@+id/sendCodeButton"
+            android:text="Gửi mã"
+            ></Button>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:paddingLeft="30dp"
+            android:gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:paddingTop="60dp">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/backButton"
+                android:text="Quay lại"
+                android:layout_marginRight="50dp"
+                ></Button>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/loginButton"
+                android:text="Đăng nhập"
+                ></Button>
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/button5"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginBottom="0dp"-->
+            <!--                android:background="@drawable/rounded_button2"-->
+            <!--                android:backgroundTint="@drawable/rounded_button2"-->
+            <!--                android:minWidth="100dp"-->
+            <!--                android:text="Quay lại"-->
+            <!--                android:layout_marginLeft="20dp"-->
+            <!--                android:layout_marginRight="90dp"/>-->
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/button6"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginBottom="0dp"-->
+            <!--                android:background="@drawable/rounded_button"-->
+            <!--                android:backgroundTint="@drawable/rounded_button"-->
+            <!--                android:minWidth="100dp"-->
+            <!--                android:text="Đăng nhập" />-->
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
     </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>

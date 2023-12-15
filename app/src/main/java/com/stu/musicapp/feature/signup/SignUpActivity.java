@@ -2,6 +2,7 @@ package com.stu.musicapp.feature.signup;
 
 import static android.app.PendingIntent.getActivity;
 
+import java.util.List;
 import java.util.UUID;
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,13 +17,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.stu.musicapp.MainActivity;
 import com.stu.musicapp.R;
+import com.stu.musicapp.feature.home.HomeActivity;
 import com.stu.musicapp.feature.signin.SignInActivity;
 import com.stu.musicapp.model.AccountModel;
 
@@ -30,120 +36,103 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SignUpActivity extends AppCompatActivity {
-        EditText nameEditText;
-        EditText emailEditText;
-        EditText passwordEditText;
-        Button buttonSignUp;
-         TextView signInTextView;
+
+    EditText emailEditText;
+    Button sendCodeButton;
+    Button backButton;
+    Button loginButton;
+
 
         @SuppressLint("MissingInflatedId")
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.acticity_sign_up);
+            emailEditText = (EditText) findViewById(R.id.emailForgotPasswordEditText);
+            sendCodeButton=  (Button) findViewById(R.id.sendCodeButton);
+            backButton=  (Button) findViewById(R.id.backButton);
+            loginButton=  (Button) findViewById(R.id.loginButton);
 
-            // Khởi tạo định danh cho biến
-            nameEditText = (EditText) findViewById(R.id.nameSignUpEditText);
-            emailEditText = (EditText) findViewById(R.id.emailSignUpEditText);
-            passwordEditText = (EditText) findViewById(R.id.passwordSignUpEditText);
-            buttonSignUp = (Button) findViewById(R.id.signUpButton);
-            signInTextView = (TextView) findViewById(R.id.signInTextView) ;
-            buttonSignUp.setBackgroundColor(0xFFB1B0FC);
-
-            signInTextView.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Log.d("stu", "Onclick textview sign in");
-                            Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                            startActivity(intent);
-                        }
-                    }
-            );
-
-
-
-            buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            loginButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String name = nameEditText.getText().toString();
-                    String email = emailEditText.getText().toString();
-                    String password = passwordEditText.getText().toString();
+                    // Intent
 
-                    if(name.isEmpty() || email.isEmpty() || password.isEmpty())
-                    {
-                        showToast("Vui lòng điền đầy đủ thông tin");
-                        return ;
-                    }
-
-                    createAccount(name,email,password);
                 }
             });
+
+            // nhập email -> nhấn nút -> kiểm tra database -> xem có email được nhập trùng
+            // với email trên db khoogn -> n
+            // => nếu có thì hiển thị password
+            // => nếu không thì show thông báo không có email trên hệ thong
+            sendCodeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Log.d("stu", emailEditText.getText().toString());
+                    if(emailEditText.getText().toString().isEmpty()){
+                        showToast("Vui lòng nhap email");
+                        return;
+                    }
+                    // => call server
+
+                   getPasswordFromDatabase(emailEditText.getText().toString());
+
+                }
+            });
+
+
         }
 
+        // get , post, delete, put
+        void getPasswordFromDatabase(String emailValue){
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-    Map<String, Object> convertModelToMap(AccountModel data){
-            Gson gson = new Gson();
-            String jsonString = gson.toJson(data);
-            Log.d("stu", jsonString);
-            Map<String, Object> accountMap = new Gson().fromJson(
-                    jsonString, new TypeToken<HashMap<String, Object>>() {}.getType()
-            );
-            Log.d("stu2", accountMap.toString());
-            return accountMap;
-        }
+            db.collection("accounts")
+                    .whereEqualTo("email", emailValue)
+                    .get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            try {
+                                if (!task.isSuccessful()) {
+                                    Log.d("stu", "is error ", task.getException());
+                                    showToast("Lỗi app");
+                                    return;
+                                }
 
-        void resetData(){
-            nameEditText.setText("");
-            emailEditText.setText("");
-            passwordEditText.setText("");
-        }
+                                List<DocumentSnapshot> listAccount = task.getResult().getDocuments();
+                                if (listAccount.isEmpty()) {
+                                    Log.d("stu", "Không có phần tử nào được trả về ");
+                                    showToast("Khong tim thay email");
+                                    return;
+                                }
+                                for (DocumentSnapshot item : listAccount) {
 
-       void showToast(String text){
-           Toast.makeText(SignUpActivity.this, text,
-                   Toast.LENGTH_LONG).show();
-       }
+                                    Map<String,Object> mapValue = item.getData();
+                                    Gson gson = new Gson();
+                                    String jsonString = new Gson().toJson(mapValue);
+                                    AccountModel data =  gson.fromJson(jsonString, AccountModel.class);
+                                    String passwordCurrent = data.getPassword();
+                                    showToast("mat khau cua ban la: "+ passwordCurrent );
+//
+                                }
 
-
-
-        void createAccount(String name,String email,String password)
-        {
-            try{
-                FirebaseFirestore database = FirebaseFirestore.getInstance();
-                //Tạo id tự động
-                String uniqueID = UUID.randomUUID().toString();
-
-                AccountModel accountModel = new AccountModel(uniqueID,name,password,"","",email,"");
-                //  Log.d("stu3", obj.toString());
-
-                Map<String,Object> accountMap =  convertModelToMap(accountModel);
-
-                database.collection("accounts").document(uniqueID).set(accountMap)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-                                showToast("Đăng ký thành công");
-                                Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                                startActivity(intent);
+                            } catch (Exception e) {
+                                Log.d("stu", "lỗi server ", e);
+                                showToast("Lỗi app");
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                showToast("Đăng ký thất bại");
-                                resetData();
-                                Log.w("stu", "Error writing document", e);
-                            }
-                        });
 
-            }catch (Exception e){
-                showToast("Đăng ký thất bại");
-                resetData();
-                Log.w("stu", "Error Exception document", e);
-
-            }
-
+                        }
+                    });
         }
+
+
+
+    void showToast(String text){
+        Toast.makeText(SignUpActivity.this, text,
+                Toast.LENGTH_LONG).show();
+    }
+
 
 
 }
