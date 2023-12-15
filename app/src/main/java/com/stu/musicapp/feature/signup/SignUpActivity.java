@@ -48,6 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
             passwordEditText = (EditText) findViewById(R.id.passwordSignUpEditText);
             buttonSignUp = (Button) findViewById(R.id.signUpButton);
             signInTextView = (TextView) findViewById(R.id.signInTextView) ;
+            buttonSignUp.setBackgroundColor(0xFFB1B0FC);
 
             signInTextView.setOnClickListener(
                     new View.OnClickListener() {

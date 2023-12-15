@@ -47,7 +47,7 @@ public class SignInActivity extends AppCompatActivity {
         buttonSignIn = (Button) findViewById(R.id.signInButton);
 
         createAccountTextView = (TextView) findViewById(R.id.createAccountTextView);
-
+        buttonSignIn.setBackgroundColor(0xFFB1B0FC);
 
         createAccountTextView.setOnClickListener(
                 new View.OnClickListener() {
