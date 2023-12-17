@@ -10,78 +10,18 @@
     android:layout_height="match_parent">
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:paddingLeft="60dp"
-            android:text="Tạo tài khoản" />
-
-        <EditText
-            android:id="@+id/nameSignUpEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:ems="10"
-            android:hint="Tên"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/emailSignUpEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="text"
-            android:padding="12dp"
-            tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="475dp" />
-
-        <EditText
-            android:id="@+id/passwordSignUpEditText"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/rounded_edit_text"
-            android:ems="10"
-            android:hint="Mật khẩu"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <!--        <androidx.appcompat.widget.AppCompatButton-->
-        <!--            android:id="@+id/button3"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginBottom="10dp"-->
-        <!--            android:background="@drawable/rounded_button"-->
-        <!--            android:backgroundTint="@drawable/rounded_button"-->
-        <!--            android:minWidth="300dp"-->
-        <!--            android:text="Tạo tài khoản" />-->
-
-
-        <Button
-            android:id="@+id/signUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tạo tài khoản" />
-
-        <TextView
-            android:id="@+id/signInTextView"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Đăng nhập" />
-    </LinearLayout>
+    <ListView
+        android:id="@+id/songListView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        tools:listitem="@layout/song_item"
+        android:background="@android:color/transparent"
+        android:cacheColorHint="@android:color/transparent"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:paddingLeft="2dp" >
+    </ListView>
 
 </androidx.appcompat.widget.LinearLayoutCompat>

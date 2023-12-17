@@ -13,6 +13,15 @@ public class SongModel {
     }
 
     String imageLink;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
     String lyric;
 
     public SongModel(
