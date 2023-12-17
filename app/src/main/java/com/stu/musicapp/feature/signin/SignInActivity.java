@@ -21,6 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.gson.Gson;
 import com.stu.musicapp.R;
+import com.stu.musicapp.feature.forgot_password.ForgotPasswordActivity;
 import com.stu.musicapp.feature.home.HomeActivity;
 import com.stu.musicapp.feature.signup.SignUpActivity;
 import com.stu.musicapp.model.AccountModel;
@@ -34,6 +35,7 @@ public class SignInActivity extends AppCompatActivity {
     EditText passwordEditText;
     Button buttonSignIn;
     TextView createAccountTextView;
+    TextView forgotPasswordTextView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -43,11 +45,23 @@ public class SignInActivity extends AppCompatActivity {
 
         // Khởi tạo định danh cho biến
         emailEditText = (EditText) findViewById(R.id.emailSignInEditText);
+        forgotPasswordTextView = (TextView) findViewById(R.id.forgotPasswordTextView);
         passwordEditText = (EditText) findViewById(R.id.passwordSignInEditText);
         buttonSignIn = (Button) findViewById(R.id.signInButton);
 
+
         createAccountTextView = (TextView) findViewById(R.id.createAccountTextView);
         buttonSignIn.setBackgroundColor(0xFFB1B0FC);
+
+
+        forgotPasswordTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("stu", "Onclick forgotPasswordTextView");
+                Intent intent = new Intent(SignInActivity.this, ForgotPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
 
         createAccountTextView.setOnClickListener(
                 new View.OnClickListener() {
